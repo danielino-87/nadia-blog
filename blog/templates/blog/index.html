@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %} 
+My Blog 
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+<section id="welcome">
+  <header>
+    <img src="{% static "blog/images/mamma.png" %}" alt="Rebecca - The Author Of This Blog" />
+    <h2>NADIA'S BLOG</h2>
+  </header>
+  <p>Ciao a tutti! Mi presento sono Nadia , sono un'artista e questo è il mio blog! </p>
+</section>
+
+<section id="latest-posts">
+  <h2>I miei ultimi dipinti</h2>
+
+  <ul>
+    {% for post in posts %}
+      {% include "blog/includes/post.html" %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>Chi sono e cosa faccio</h2>
+  <p>
+    Amo dipingere quadri di ogni tipo. La mia tecnica preferita è l'acquerello .
+    Il mio obiettivo è crescere come artista in toto e far conoscere alle persone i miei dipinti.
+  </p>
+  
+</section>
+{% endblock %}
